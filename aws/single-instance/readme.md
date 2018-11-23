@@ -1,4 +1,7 @@
 terraform init
-terraform plan -var "sandbox_id=stan-test" -var "owner=Stan" -var "key_name=comformation-eu-west-1"
-terraform apply -var "sandbox_id=stan-test" -var "owner=Stan" -var "key_name=comformation-eu-west-1"
-terraform destroy -var "sandbox_id=stan-test" -var "owner=Stan" -var "key_name=comformation-eu-west-1"
+
+terraform plan -var "sandbox_id=<_sandbox-id_>" -var "owner=<_owner_>" -var "key_name=<_key-name_>"
+
+terraform apply -var "sandbox_id=<_sandbox-id_>" -var "owner=<_owner_>" -var "key_name=<_key-name_>"
+
+terraform destroy -var "sandbox_id=<_sandbox-id_>" -var "owner=<_owner_>" -var "key_name=<_key-name_>"
