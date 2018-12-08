@@ -12,6 +12,10 @@ module "vpc" {
   owner = "${var.owner}"
 }
 
+locals {
+  timestamp =  "${timestamp()}"  
+}
+
 resource "aws_network_interface" "nic" {
   subnet_id = "${module.vpc.public_subnet1_id}"
   security_groups = ["${aws_security_group.sg_ssh.id}"]
@@ -116,10 +120,6 @@ resource "aws_ec2_fleet" "fleet" {
 
 output "instance_public_ip" {
   value = "${aws_eip.eip.public_ip}"
-}
-
-output "describe_fleets" {
-  value = "aws ec2 describe-fleets --fleet-id ${aws_ec2_fleet.fleet.id}"
 }
 
 output "describe_fleet_history" {
