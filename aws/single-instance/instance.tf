@@ -22,12 +22,13 @@ resource "aws_instance" "instance" {
       "${aws_security_group.sg_ssh.id}"
   ]
   
-  tags {
+  tags = {
     Name = "${var.sandbox_id}-instance"
     Owner = "${var.owner}"
   }
   
   connection {
+    host = "${aws_instance.instance.public_ip}"
     user = "ubuntu"
     private_key = "${file("~/.aws/${var.key_name}.pem")}"
   }
